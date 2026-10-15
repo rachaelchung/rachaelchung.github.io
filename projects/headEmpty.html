@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>head empty. no thoughts. — Rachael Chung</title>
+  <meta name="description" content="A gamified assignment tracker where staying focused makes little creatures wander across your screen. Web app plus Chrome extension." />
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <!-- =====================================================================
+       PAGE CSS
+       ===================================================================== -->
+  <style>
+    .moment {
+      display: inline-block; max-width: 38ch; margin-top: var(--space-5); padding: 0.6rem 1.1rem;
+      font-size: var(--text-sm); font-weight: 700; line-height: var(--leading-snug); text-transform: lowercase;
+      background: var(--accent-pop); border: 2px solid var(--ink); border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm); rotate: -1.5deg;
+    }
+    .hero-links { margin-top: var(--space-5); }
+
+    .flow { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: stretch; margin: 0 0 var(--space-4); }
+    .flow__step {
+      flex: 1 1 140px; padding: var(--space-4); background: var(--paper-card);
+      border: 2px solid var(--ink); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);
+      font-size: var(--text-sm); color: var(--ink-soft);
+    }
+    .flow__step strong { display: block; margin-bottom: var(--space-1); color: var(--ink); text-transform: lowercase; }
+    .flow__step--hot { background: var(--accent-pop); }
+
+    .video-embed {
+      position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: var(--ink);
+      border: var(--border-width) solid var(--ink); border-radius: var(--radius-md); box-shadow: var(--shadow-md);
+    }
+    .video-embed iframe, .video-embed__placeholder { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .video-embed__placeholder { display: grid; place-items: center; padding: var(--space-5); text-align: center; color: var(--paper); }
+
+    .parts { margin: 0 0 var(--space-4); }
+    .parts li { padding: var(--space-3) 0; color: var(--ink-soft); border-bottom: 2px solid rgba(26, 26, 26, 0.07); }
+    .parts li:last-child { border-bottom: none; }
+    .parts strong { color: var(--ink); }
+
+    /* ---- the focus + catch demo ---- */
+    .focus { padding: var(--space-6); }
+    .focus__top { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; margin-bottom: var(--space-4); }
+    .focus__score { font-weight: 800; font-size: var(--text-lg); font-variant-numeric: tabular-nums; }
+    .focus__bar { height: 18px; overflow: hidden; background: var(--paper-warm); border: 2px solid var(--ink); border-radius: var(--radius-pill); }
+    .focus__bar span { display: block; width: 0; height: 100%; background: var(--color-primary); transition: width 0.12s linear; }
+    .focus__status { min-height: 1.6em; margin: var(--space-3) 0 var(--space-4); font-weight: 600; color: var(--ink-soft); }
+    .stage {
+      position: relative; height: 150px; overflow: hidden; background: var(--color-bg-light);
+      border: var(--border-width) solid var(--ink); border-radius: var(--radius-md);
+    }
+    .stage::after { content: ''; position: absolute; inset: auto 0 0 0; height: 14px; background: var(--color-secondary); border-top: 2px solid var(--ink); }
+    .walker {
+      position: absolute; bottom: 12px; left: 0; width: 64px; padding: 0; cursor: pointer; z-index: 1;
+      animation: walk-across 7s linear forwards; filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.25));
+    }
+    .walker svg { width: 100%; height: auto; transition: transform 0.12s; }
+    .walker:hover svg { transform: scale(1.2) translateY(-4px); }
+    @keyframes walk-across { from { transform: translateX(-80px); } to { transform: translateX(var(--stage-w, 700px)); } }
+    .burst { position: absolute; z-index: 2; font-weight: 800; color: var(--ink); pointer-events: none; animation: burst-up 0.9s ease-out forwards; }
+    @keyframes burst-up { from { opacity: 1; translate: 0 0; } to { opacity: 0; translate: 0 -48px; } }
+    @media (prefers-reduced-motion: reduce) { .walker { animation-duration: 12s; } .burst { animation-duration: 0.01s; } }
+
+    /* ---- meet the creatures ---- */
+    .meet { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: var(--space-4); }
+    .meet__card { padding: var(--space-4); text-align: center; background: var(--paper-card); border: 2px solid var(--ink); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); transition: transform var(--dur-mid) var(--ease-bounce); }
+    .meet__card:nth-child(odd) { rotate: -1.5deg; }
+    .meet__card:nth-child(even) { rotate: 1.5deg; }
+    .meet__card:hover { rotate: 0deg; transform: translateY(-4px); }
+    .meet__card svg { width: 64px; height: 64px; margin: 0 auto var(--space-2); }
+    .meet__card strong { display: block; text-transform: lowercase; }
+    .meet__card small { font-size: var(--text-xs); color: var(--ink-faint); font-weight: 600; }
+
+  </style>
+</head>
+<body data-page="project" data-theme="purple">
+
+  <nav class="site-nav" aria-label="Main">
+    <a class="site-nav__mark" href="../index.html" aria-label="Home">
+        <img src="../files/logo.png" alt="rc" />
+    </a>
+    <ul class="site-nav__links">
+      <li><a href="../index.html#work">work</a></li>
+      <li><a href="../playground.html">playground</a></li>
+      <li><a href="../about.html">about</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <header class="project-hero">
+    <div class="container">
+      <a class="back-link" href="../index.html#work"><span aria-hidden="true">←</span> back to all projects</a>
+
+      <h1 class="heading-1">Head Empty. No Thoughts.</h1>
+
+      <ul class="tag-list">
+        <li class="chip chip--solid">gamification</li>
+        <li class="chip chip--solid">interaction design</li>
+        <li class="chip chip--solid">web dev</li>
+        <li class="chip chip--solid">chrome extension</li>
+        <li class="chip chip--solid">ai-assisted dev</li>
+      </ul>
+
+      <p class="lede">
+        A gamified assignment tracker for students who don't really want to do them. Focus with a pomodoro timer, and if you stay locked in long enough, little creatures wander across your screen for you to catch.
+      </p>
+
+      <p class="moment">built for: the moment you stay focused long enough that a tiny creature wanders across your screen.</p>
+
+      <div class="cluster hero-links">
+        <a class="btn btn--sm" href="https://github.com/rachaelchung/113Capstone/tree/main" target="_blank" rel="noopener">github repo</a>
+        <a class="btn btn--sm" href="https://rachaelchung.github.io/113Capstone/" target="_blank" rel="noopener">live app</a>
+        <a class="btn btn--sm" href="https://github.com/rachaelchung/headempty-chromeextension" target="_blank" rel="noopener">chrome extension</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- The idea -->
+    <section class="section section--tight section--warm">
+      <div class="container">
+        <div class="prose reveal">
+          <h2>the idea</h2>
+          <p>
+            As a student, I don't always have the motivation to focus on my assignments or studying, so I wanted to think about how to make focusing more <em>fun</em>. The game loop borrows from cozy collecting games like Pokémon Sleep, where doing the real-life thing (sleeping there, studying here) earns you something you want to come back for. It had to be more than just checking something off, and using time, something you cannot "lie" about, was the perfect platform.
+          </p>
+          <p>
+            Upload your syllabi at the start of the semester and the app fills in your courses, assignments, and grade weights. Then the game takes over. Focus on the habitat within the app, or focus on a different screen (just not one that is a distraction!).
+          </p>
+        </div>
+
+        <div class="flow reveal">
+          <div class="flow__step flow__step--hot"><strong>focus</strong>start the pomodoro timer</div>
+          <div class="flow__step"><strong>creatures wander</strong>stay focused long enough a creature might cross the screen</div>
+          <div class="flow__step"><strong>click to catch</strong>if you're still focused, you'll notice to click to catch it</div>
+          <div class="flow__step"><strong>finish work</strong>completed assignments earn you coins</div>
+          <div class="flow__step"><strong>decorate</strong>spend coins on your habitat and taking care of your new friends!</div>
+        </div>
+
+        <div class="prose reveal">
+          <h3>what each mechanic does for the user</h3>
+          <ul class="parts">
+            <li><strong>creatures appear while you focus:</strong> a reason to keep the timer running, and to keep you engaged on the screen so you don't miss a creature crossing.</li>
+            <li><strong>focus guard:</strong> mark your distracting sites, and if you visit one mid-session the timer pauses and no new creatures spawn.</li>
+            <li><strong>coins for finished assignments:</strong> a small reward so the work your doing is actually working towards a goal.</li>
+            <li><strong>habitat:</strong> something to build over the semester that you'd feel a little bad abandoning.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo video -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="reveal">
+          <h2 class="heading-2" style="margin-bottom: var(--space-5)">see it in action</h2>
+          <figure class="figure">
+            <div class="video-embed">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/GLuyW74T6Yg?si=UBxpckwTJplDMIoS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <figcaption>the demo video: ~7min full walkthrough</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive demo -->
+    <section class="section section--tight section--tint">
+      <div class="container">
+        <div class="prose reveal">
+          <h2>try it: stay focused, catch a creature</h2>
+          <p>
+            A pomodoro is 25 minutes, so here's a 10-second version. Start the timer and wait ("focus") the 10-seconds. After time is up, a creature will appear. Click it to catch it before it's too late!
+          </p>
+        </div>
+
+        <div class="focus card reveal" id="focus-demo" style="margin-top: var(--space-5)">
+          <div class="focus__top">
+            <button class="btn btn--primary" id="focus-btn" type="button">start 10-second focus</button>
+            <span class="focus__score">creatures caught: <span id="focus-caught">0</span></span>
+          </div>
+          <div class="focus__bar" role="progressbar" aria-label="Focus progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="focus-fill"></span></div>
+          <p class="focus__status" id="focus-status" aria-live="polite">ready when you are.</p>
+          <div class="stage" id="focus-stage" aria-label="Creature stage"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Meet the creatures
+    <section class="section section--tight">
+      <div class="container">
+        <div class="prose reveal">
+          <h2>meet the creatures</h2>
+          <p>
+            Every new account starts with five creatures in the habitat. <span class="todo">[1-2 sentences: how the creatures were designed, e.g. drawn by hand as SVGs, why they're blobs with faces, how rarer ones work.]</span>
+          </p>
+        </div>
+        <div class="meet reveal" id="meet-row" style="margin-top: var(--space-5)"></div>
+      </div>
+    </section> -->
+
+    <!-- Web app + extension -->
+    <section class="section section--tight section--warm">
+      <div class="container">
+        <div class="prose reveal">
+          <h2>web app + chrome extension</h2>
+          <p>
+            The web app holds the actual assignment tracker along with the habitat and a creature crossing on a nice background. The companion Chrome extension overlays the timer and creature crossing on top of every Chrome tab, and during focus sessions it blocks sites you marked as "forbidden" during focus. Drag the timer around or minimize it.
+          </p>
+        </div>
+        <div class="gallery reveal" style="margin-top: var(--space-5)">
+          <figure class="figure">
+            <img src="artifacts/headEmpty/assignmentPlanner.png" alt="assignment tracker" />
+            <figcaption>The assignment planner screen</figcaption>
+          </figure>
+          <figure class="figure">
+            <img src="artifacts/headEmpty/chromeExtension.png" alt="Creature crossing on chrome extension" />
+            <figcaption>Chrome extension with creature crossing</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Things working and breaking -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="prose reveal">
+          <h2>designing + building</h2>
+          <h3>things working and breaking</h3>
+          <p>
+            One of the main challenges was balancing the frequency of creature appearances. Initially, they spawned way too often, making the experience feel cluttered and more distracting than conducive to focusing. After tuning the spawn rate, I found a good balance that keeps the experience engaging without being overwhelming.
+          </p>
+          <h3>some design decisions</h3>
+          <p>
+            The creature size when crossing the bottom of the screen was a significant choice I had to make. They had to be big enough to actually be noticeable when you were focused, but not too big that you would notice them if you weren't (looking at your phone, etc.). The size I chose was small enough that if you were looking at the screen, you would see it happen, but if you weren't, they would likely just pass by.
+          </p>
+          <p>
+            Also, the upload your syllabus feature worked so much better than I thought it would, and when showing friends, this was the part they actually found most interesting. This thought really helped expand into <a href="vivifi.html">Vivifi</a> eventually.
+        </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Improvement -->
+    <section class="section section--tight section--tint">
+      <div class="container">
+        <div class="prose reveal">
+          <h2>continuous improvement</h2>
+          <p>
+            First and foremost, creatures were intended to just be "shapes with eyes" for this level of project, and thus my first goal would be to design and create actual creatures with names and personalities you want to get the chance to catch. I would also make the habitat and what you can buy with coins more visually appealing so people actually felt committed to getting and spending coins.
+
+            I would also love to develop the app to not only be a web app and chrome extension, but to also be a desktop app where the creatures could walk across different screens. Imagine if I could collect creatures while coding in VSCode?
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spec sheet + buttons -->
+    <section class="section section--tight">
+      <div class="container">
+        <dl class="spec-sheet reveal">
+          <div><dt>tools</dt><dd>cursor & claude, hosted on Render</dd></div>
+          <div><dt>timeline</dt><dd>spring 2026, in ~8 hours</dd></div>
+          <div><dt>role</dt><dd>solo, design + development</dd></div>
+          <div><dt>course</dt><dd>15-113 Effective Coding with AI</dd></div>
+          <div><dt>status</dt><dd>live, as functional prototype</dd></div>
+        </dl>
+
+        <div class="cluster" style="margin-top: var(--space-6)">
+          <a class="btn btn--primary" href="socialMedia.html">next project <span class="btn__arrow" aria-hidden="true">→</span></a>
+          <a class="btn" href="../index.html#work">back to all projects</a>
+          <a class="btn btn--ghost" href="../playground.html">see the playground</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__top">
+        <a href="mailto:rachung23@gmail.com">email</a>
+        <a href="https://linkedin.com/in/rachaelachung" target="_blank" rel="noopener">linkedin</a>
+        <a href="https://github.com/rachaelchung" target="_blank" rel="noopener">github</a>
+      </div>
+      <p>© 2026 rachael chung</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      /* Creature art, condensed from the landing page SVGs. */
+      var INK = '#1a1a1a';
+      function eyes(lx, rx, y, r, p) {
+        return '<circle cx="' + lx + '" cy="' + y + '" r="' + r + '" fill="#fff" stroke="' + INK + '" stroke-width="1.5"/>' +
+               '<circle cx="' + rx + '" cy="' + y + '" r="' + r + '" fill="#fff" stroke="' + INK + '" stroke-width="1.5"/>' +
+               '<circle cx="' + (lx + 1) + '" cy="' + (y - 1) + '" r="' + p + '" fill="' + INK + '"/>' +
+               '<circle cx="' + (rx + 1) + '" cy="' + (y - 1) + '" r="' + p + '" fill="' + INK + '"/>';
+      }
+      function smile(x1, x2, y, c) {
+        return '<path d="M' + x1 + ' ' + y + ' Q' + ((x1 + x2) / 2) + ' ' + c + ' ' + x2 + ' ' + y + '" stroke="' + INK + '" stroke-width="2" fill="none" stroke-linecap="round"/>';
+      }
+      var ART = {
+        blob: '<svg viewBox="0 0 66 66" aria-hidden="true"><ellipse cx="33" cy="38" rx="27" ry="24" fill="#f5c518" stroke="' + INK + '" stroke-width="2.5"/><ellipse cx="15" cy="22" rx="7" ry="9" fill="#f5c518" stroke="' + INK + '" stroke-width="2.5" transform="rotate(-15 15 22)"/><ellipse cx="51" cy="22" rx="7" ry="9" fill="#f5c518" stroke="' + INK + '" stroke-width="2.5" transform="rotate(15 51 22)"/>' + eyes(25, 41, 34, 4.5, 2.2) + smile(27, 39, 44, 49) + '</svg>',
+        spiky: '<svg viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="36" rx="22" ry="22" fill="#1e6fd9" stroke="' + INK + '" stroke-width="2.5"/><polygon points="32,6 36,18 28,18" fill="#1e6fd9" stroke="' + INK + '" stroke-width="2"/><polygon points="50,16 46,27 38,22" fill="#1e6fd9" stroke="' + INK + '" stroke-width="2"/><polygon points="14,16 18,27 26,22" fill="#1e6fd9" stroke="' + INK + '" stroke-width="2"/>' + eyes(25, 39, 33, 4, 2) + smile(27, 37, 42, 47) + '</svg>',
+        chubby: '<svg viewBox="0 0 74 74" aria-hidden="true"><ellipse cx="37" cy="42" rx="30" ry="28" fill="#e8392a" stroke="' + INK + '" stroke-width="2.5"/><g stroke="' + INK + '" stroke-width="3" stroke-linecap="round"><line x1="20" y1="66" x2="18" y2="73"/><line x1="29" y1="68" x2="27" y2="73"/><line x1="45" y1="68" x2="43" y2="73"/><line x1="54" y1="66" x2="52" y2="73"/></g>' + eyes(28, 46, 38, 5, 2.5) + smile(29, 45, 50, 56) + '</svg>',
+        antenna: '<svg viewBox="0 0 62 68" aria-hidden="true"><rect x="7" y="16" width="48" height="44" rx="18" fill="#3bbf6e" stroke="' + INK + '" stroke-width="2.5"/><line x1="31" y1="16" x2="31" y2="4" stroke="' + INK + '" stroke-width="2.5" stroke-linecap="round"/><circle cx="31" cy="3" r="4" fill="#f5c518" stroke="' + INK + '" stroke-width="2"/>' + eyes(22, 40, 32, 4, 2) + smile(23, 39, 44, 50) + '</svg>',
+        ghost: '<svg viewBox="0 0 58 70" aria-hidden="true"><path d="M29 4 C12 4 5 18 5 34 L5 58 L14 52 L22 58 L29 52 L36 58 L44 52 L53 58 L53 34 C53 18 46 4 29 4Z" fill="#9b59d0" stroke="' + INK + '" stroke-width="2.5"/>' + eyes(21, 37, 30, 4.5, 2.2) + smile(22, 36, 41, 47) + '</svg>'
+      };
+      var TYPES = Object.keys(ART);
+
+      /* meet the creatures row (names are placeholders) */
+      var row = document.getElementById('meet-row');
+      if (row) {
+        row.innerHTML = TYPES.map(function (t) {
+          return '<div class="meet__card">' + ART[t] + '<strong><span class="todo">[name]</span></strong><small><span class="todo">[rarity]</span></small></div>';
+        }).join('');
+      }
+
+      /* focus + catch demo */
+      var root = document.getElementById('focus-demo');
+      if (!root) return;
+      var btn = document.getElementById('focus-btn'),
+          fill = document.getElementById('focus-fill'),
+          bar = root.querySelector('[role=progressbar]'),
+          status = document.getElementById('focus-status'),
+          stage = document.getElementById('focus-stage'),
+          caughtEl = document.getElementById('focus-caught');
+      var TOTAL = 10, elapsed = 0, timer = null, caught = 0, wasPaused = false;
+
+      function say(t) { status.textContent = t; }
+      function setBar(p) { fill.style.width = p + '%'; bar.setAttribute('aria-valuenow', Math.round(p)); }
+
+      function spawn() {
+        stage.style.setProperty('--stage-w', stage.clientWidth + 'px');
+        var w = document.createElement('button');
+        w.type = 'button';
+        w.className = 'walker';
+        w.setAttribute('aria-label', 'Catch the creature');
+        w.innerHTML = ART[TYPES[Math.floor(Math.random() * TYPES.length)]];
+        w.addEventListener('click', function () {
+          var r = w.getBoundingClientRect(), s = stage.getBoundingClientRect();
+          var b = document.createElement('span');
+          b.className = 'burst';
+          b.textContent = 'caught!';
+          b.style.left = (r.left - s.left) + 'px';
+          b.style.top = (r.top - s.top - 14) + 'px';
+          stage.appendChild(b);
+          setTimeout(function () { b.remove(); }, 950);
+          w.remove();
+          caught++;
+          caughtEl.textContent = caught;
+          say('nice catch. run another sprint?');
+        });
+        w.addEventListener('animationend', function () {
+          if (w.isConnected) { w.remove(); say('it wandered off. next time, be quicker.'); }
+        });
+        stage.appendChild(w);
+        say('a creature is wandering by. click it!');
+      }
+
+      function finish() {
+        clearInterval(timer); timer = null;
+        btn.textContent = 'start 10-second focus';
+        btn.disabled = false;
+        spawn();
+      }
+
+      function tick() {
+        if (document.hidden) {
+          wasPaused = true;
+          return;
+        }
+        if (wasPaused) { wasPaused = false; say('welcome back. timer resumed.'); }
+        elapsed += 0.1;
+        setBar(Math.min(100, elapsed / TOTAL * 100));
+        if (elapsed >= TOTAL) finish();
+      }
+
+      document.addEventListener('visibilitychange', function () {
+        if (timer && document.hidden) say('paused: you left the tab. focus guard says no cheating.');
+      });
+
+      btn.addEventListener('click', function () {
+        elapsed = 0; wasPaused = false;
+        setBar(0);
+        stage.querySelectorAll('.walker').forEach(function (n) { n.remove(); });
+        btn.disabled = true;
+        btn.textContent = 'focusing...';
+        say('stay on this tab. you got this.');
+        timer = setInterval(tick, 100);
+      });
+    })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="../main.js"></script>
+</body>
+</html>

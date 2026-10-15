@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>vivifi — Rachael Chung</title>
+  <meta name="description" content="Vivifi turns a static syllabus into a live gradebook, assignment calendar, and office-hour directory. Winner at Stellic's Pathfinders Challenge 2026." />
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <!-- =====================================================================
+       THIS PAGE CSS —
+       ===================================================================== -->
+  <style>
+    .moment {
+      display: inline-block; max-width: 36ch; margin-top: var(--space-5); padding: 0.6rem 1.1rem;
+      font-size: var(--text-sm); font-weight: 700; line-height: var(--leading-snug); text-transform: lowercase;
+      background: var(--accent-pop); border: 2px solid var(--ink); border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm); rotate: -1.5deg;
+    }
+    /* proof-point sticker: only for projects with a real headline result */
+    .proof {
+      display: inline-block; margin: var(--space-5) 0 0 var(--space-3); padding: 0.35rem 0.9rem;
+      font-size: var(--text-sm); font-weight: 700; text-transform: lowercase;
+      background: var(--accent-rose); color: var(--ink); border: 2px solid var(--ink);
+      border-radius: var(--radius-pill); box-shadow: var(--shadow-sm); rotate: 3deg;
+    }
+
+    .hero-links { margin-top: var(--space-5); }
+
+    /* pipeline row for "how it works" */
+    .flow { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: stretch; margin: 0 0 var(--space-4); }
+    .flow__step {
+      flex: 1 1 150px; padding: var(--space-4); background: var(--paper-card);
+      border: 2px solid var(--ink); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);
+      font-size: var(--text-sm); color: var(--ink-soft);
+    }
+    .flow__step strong { display: block; margin-bottom: var(--space-1); color: var(--ink); text-transform: lowercase; }
+    .flow__step--code { background: var(--color-bg-light); }
+
+    .video-embed {
+      position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: var(--ink);
+      border: var(--border-width) solid var(--ink); border-radius: var(--radius-md); box-shadow: var(--shadow-md);
+    }
+    .video-embed iframe, .video-embed__placeholder { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .video-embed__placeholder { display: grid; place-items: center; padding: var(--space-5); text-align: center; color: var(--paper); }
+
+  </style>
+</head>
+<body data-page="project" data-theme="sunset">
+
+  <nav class="site-nav" aria-label="Main">
+    <a class="site-nav__mark" href="../index.html" aria-label="Home">
+      <img src="../files/logo.png" alt="rc" />
+    </a>
+    <ul class="site-nav__links">
+      <li><a href="../index.html#work">work</a></li>
+      <li><a href="../playground.html">playground</a></li>
+      <li><a href="../about.html">about</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <header class="project-hero">
+    <div class="container">
+      <a class="back-link" href="../index.html#work"><span aria-hidden="true">←</span> back to all projects</a>
+
+      <h1 class="heading-1">Vivifi: Your Syllabus, Alive</h1>
+
+      <ul class="tag-list">
+        <li class="chip chip--solid">ux design</li>
+        <li class="chip chip--solid">interaction design</li>
+        <li class="chip chip--solid">web dev</li>
+        <li class="chip chip--solid">ai-assisted dev</li>
+      </ul>
+
+      <p class="lede">
+        A live gradebook and syllabus interface. Upload a syllabus PDF and get weighted grade scenarios, an assignment calendar across courses, and an office-hour directory in under 3 minutes.
+      </p>
+
+      <p>
+        <span class="moment">the moment a student opens a syllabus and sees where they stand, not just what's listed.</span>
+        <span class="proof">stellic pathfinders challenge 2026 finalist</span>
+      </p>
+
+      <div class="cluster hero-links">
+        <a class="btn btn--sm" href="https://github.com/rachaelchung/vivifi" target="_blank" rel="noopener">github repo</a>
+        <a class="btn btn--sm" href="https://www.stellic.com/pathfinders#winners" target="_blank" rel="noopener">pathfinders winners</a>
+        <a class="btn btn--sm" href="https://rachaelchung.github.io/vivifi/" target="_blank" rel="noopener">live app</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Why -->
+    <section class="section section--tight section--warm">
+      <div class="container">
+        <div class="prose reveal">
+          <h2>why I built it</h2>
+          <p>
+            <strong>Everything you need to pass your class lives in a static document you read once.</strong>
+          </p>
+          <p>
+            In a system built around grades and GPA, it's surprisingly hard to know where you stand in a class at any moment. It depends on how each professor or TA uses Canvas or Gradescope, and on announcements like unrecorded curves. Diligent students spend hours building their own spreadsheets across courses, platforms, and grading scales.
+          </p>
+          <p>
+            The cost of not knowing is real. I've had friends in tears over too many question marks in their gradebook near the end of the semester, friends end up on probation unexpectedly, and friends who had to make a gradebook for their entire class by themself.
+          </p>
+          <p>
+            Vivifi started from that gap. It turns a 10-page contract into something you can interact with all semester, so students know when they need help and where to get it.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo video -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="reveal">
+          <h2 class="heading-2" style="margin-bottom: var(--space-5)">see it in action</h2>
+          <figure class="figure">
+            <div class="video-embed">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/9AF5j5gnW2E?si=Z9jxRsU2ozYegGmm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <figcaption>the demo video: ~3min short walkthrough</figcaption>
+          </figure>
+        </div>
+
+        <div class="gallery reveal" style="margin-top: var(--space-6)">
+          <figure class="figure">
+            <img src="artifacts/vivifi/courses.png" alt="Vivifi semester hub showing course cards, each with a live grade" />
+            <figcaption>semester hub: every course and its live grade</figcaption>
+          </figure>
+          <figure class="figure">
+            <img src="artifacts/vivifi/gradecalc.png" alt="Vivifi live gradebook with weighted categories and a what-do-I-need-on-the-final query box" />
+            <figcaption>live gradebook with the grade predictor</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- const playing gradebook demo -->
+    <section class="section section--tight section--tint">
+      <div class="container">
+        <div class="prose reveal">
+          <h2>see the gradebook predictor</h2>
+          <p>
+            A big componenet of creating this project was around the gradebook predictor. I wanted to use AI so it could handle those anxiety-ridden panicked questions without touching your numbers. The predictor thus only sends the overview and question to AI and AI sends back to the codebase what to actually calculate, so that AI never actually touches your numbers.
+          </p>
+        </div>
+
+        <figure class="figure">
+            <video src="artifacts/vivifi/gradebookDemo.mov" autoplay loop muted playsinline aria-label="Video of live gradebook in use"></video>
+            <figcaption>using live gradebook grade predicator</figcaption>
+        </figure>
+    </section>
+
+    <!-- How -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="prose reveal">
+          <h2>how it works</h2>
+          <p>
+            Vivifi has one simple flow to get you live in under 3 minutes.
+          </p>
+        </div>
+        <div class="flow reveal">
+          <div class="flow__step"><strong>upload</strong>take your syllabus and upload it to Vivifi</div>
+          <div class="flow__step"><strong>read</strong>ai parses and pulls out weights, assignments, instructors, office hours, schedule, materials, and notes</div>
+          <div class="flow__step"><strong>review</strong>see, edit, and confirm everything pulled out, so you never are blindly trusting ai</div>
+          <div class="flow__step flow__step--code"><strong>interact</strong>interact with your syllabus throughout the semester like it's a living document it was meant to be</div>
+        </div>
+        <div class="prose reveal">
+          <p>
+            Every value keeps a record of whether it came from the syllabus or from you, so there's never a question about where a number came from. From there you get a semester hub: a live gradebook, an assignment and exam tracker (calendar, week, or list), and a directory of instructors and office hours.
+          </p>
+          <p>
+            Claude API is called to parse data, and the pdfplumber library is used to extract text from PDFs. No info other than the info you confirm afterwards it stored on the database.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI philosophy -->
+    <section class="section section--tight section--warm">
+      <div class="container">
+        <div class="prose reveal">
+          <h2>my ai philosophy</h2>
+          <p>
+            <strong>A question I wanted to approach was the role AI can and should play in higher education.</strong> It was important to me that Vivifi was intentionally not a chatbot. There's nothing to talk back and forth with. AI appears in exactly the places it's needed, does one narrow job, and gets out of the way. Language models are good at reading messy PDFs and understanding how someone phrases a question. They aren't a substitute for verifiable arithmetic, or for a student's own judgment about their own coursework.
+          </p>
+        </div>
+        <div class="skill-grid reveal" style="margin-top: var(--space-5)">
+          <div class="skill-card card">
+            <h3>ai reads</h3>
+            <ul>
+              <li>turns a messy syllabus PDF into structured fields</li>
+              <li>turns "can I still get an A?" into a formal query</li>
+            </ul>
+          </div>
+          <div class="skill-card card">
+            <h3>code calculates</h3>
+            <ul>
+              <li>every weighted grade</li>
+              <li>every what-do-I-need scenario</li>
+              <li>the same answer every time, so no hallucinated math</li>
+            </ul>
+          </div>
+          <div class="skill-card card">
+            <h3>you decide</h3>
+            <ul>
+              <li>review and edit every extracted field before it's saved</li>
+              <li>see whether each value came from the syllabus or from you</li>
+            </ul>
+          </div>
+        </div>
+        <div class="prose reveal" style="margin-top: var(--space-6)">
+          <p>
+            Additionally, the app was built using AI (as per competition guidelines). My approach and process was largely shaped by what I was taught in my coursework (15-113, Effective Coding with AI) including starting with a detailed SPEC, building in sections, and understanding all my code before committing anything. 
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Things working and breaking -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="prose reveal">
+          <h2>designing + building (+ presenting!)</h2>
+          <h3>things working and breaking</h3>
+          <p>It took a lot of "prompt engineering" as well as going through multiple kinds of syllabus to understand the nuances of what each student might be looking for. The decision to use pdfplumber was because pdfplumber also handles spacial componenets to pdfs, making those couple of pdfs that just have a table of assignments and dates much easier to parse.</p>
+          <h3>the pathfinders challenge</h3>
+          <p>
+            Vivifi was built for Stellic's Pathfinders Challenge 2026 and named among the top 3 finalists out of nearly 200 submissions nationwide. This project was build with the prompt to create an app that overcomes obstacles in higher education. The challenge gave us Claude API credits and encouraged us to build with AI. This project was completed in 3 weeks.
+          </p>
+          <p>
+            As a finalist, I was flown out to present a live demo in Philadelphia at Stellics Partners Summit in front of ~250 higher education professionals, and then table for the rest of the day. It was an amazing experience to meet and learn from so many people, including my two other finalists for the day.
+          </p>
+        </div>
+
+        <div class="gallery reveal" style="margin-top: var(--space-5)">
+          <figure class="figure">
+            <img src="artifacts/vivifi/pathfinder1.jpg" alt="Vivifi live demo and presentation" />
+            <figcaption>Live demo and presentation at Stellics Partners Summit</figcaption>
+          </figure>
+          <figure class="figure">
+            <img src="artifacts/vivifi/pathfinder2.jpg" alt="Vivifi finalists and Stellic founder" />
+            <figcaption>Finalists and Stellic founder at Stellics Partners Summit</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Improvement -->
+    <section class="section section--tight section--tint">
+      <div class="container">
+        <div class="prose reveal">
+          <h2>continuous improvement</h2>
+          <p>
+            At the end of the day, this project was a functional proof-of-concept and prototype. If I kept building it, I'd would begin API integration (data from Canvas, Gradescope, etc.) and also keep iterating on the grade predictor. I also got feedback from the conference that it could also be helpful to students as a planner assistant, helping students understand how long to spend on assignments and studying.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spec sheet + buttons -->
+    <section class="section section--tight">
+      <div class="container">
+        <dl class="spec-sheet reveal">
+          <div><dt>tools</dt><dd>Cursor (Opus 5, Auto: other models), hosted on Render, Neon Postgres, and GitHub pages</dd></div>
+          <div><dt>timeline</dt><dd>summer 2026, over 3 weeks</dd></div>
+          <div><dt>role</dt><dd>solo, design + development</dd></div>
+          <div><dt>event</dt><dd>stellic pathfinders challenge 2026</dd></div>
+          <div><dt>status</dt><dd>top 3 finalists · live app offline</dd></div>
+        </dl>
+
+        <div class="cluster" style="margin-top: var(--space-6)">
+          <a class="btn btn--primary" href="pillDispenser.html">next project <span class="btn__arrow" aria-hidden="true">→</span></a>
+          <a class="btn" href="../index.html#work">back to all projects</a>
+          <a class="btn btn--ghost" href="../playground.html">see the playground</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__top">
+        <a href="mailto:rachung23@gmail.com">email</a>
+        <a href="https://linkedin.com/in/rachaelachung" target="_blank" rel="noopener">linkedin</a>
+        <a href="https://github.com/rachaelchung" target="_blank" rel="noopener">github</a>
+      </div>
+      <p>© 2026 rachael chung</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="../main.js"></script>
+</body>
+</html>

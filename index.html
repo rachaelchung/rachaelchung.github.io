@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rachael Chung Portfolio</title>
+  <meta name="description" content="Rachael Chung — mechanical engineering and human-computer interaction student. I design and build things that bridge gaps between people and mechanisms." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="home">
+
+  <!-- ===================================================================
+       Navigation
+       =================================================================== -->
+  <nav class="site-nav" aria-label="Main">
+    <a class="site-nav__mark" href="index.html" aria-label="Home">
+      <img src="files/logo.png" alt="rc" />
+    </a>
+    <ul class="site-nav__links">
+      <li><a href="#work">work</a></li>
+      <li><a href="#playground">playground</a></li>
+      <li><a href="about.html">about</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================================================================
+       Hero
+       =================================================================== -->
+  <header class="hero">
+    <div class="hero__shapes" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <h1 class="hand-lettered-name">
+        <span class="visually-hidden">Rachael Chung</span>
+        <!-- The translateY nudges are in em so they scale with the name.
+             main.js reads these as each letter's rest position. -->
+        <span class="name-row" id="first-name" aria-hidden="true">
+          <img src="letters/R.png"  alt="" class="name-letter letter-r"  style="transform: translateX(0em) translateY(0em)" />
+          <img src="letters/A1.png" alt="" class="name-letter letter-a1" style="transform: translateX(-0.7em) translateY(-0.07em)" />
+          <img src="letters/C1.png" alt="" class="name-letter letter-c1" style="transform: translateX(-1.4em) translateY(-0.10em)" />
+          <img src="letters/H1.png" alt="" class="name-letter letter-h1" style="transform: translateX(-2.15em) translateY(-0.10em)" />
+          <img src="letters/A2.png" alt="" class="name-letter letter-a2" style="transform: translateX(-2.9em) translateY(-0.10em)" />
+          <img src="letters/E.png"  alt="" class="name-letter letter-e"  style="transform: translateX(-3.7em) translateY(-0.08em)" />
+          <img src="letters/L.png"  alt="" class="name-letter letter-l"  style="transform: translateX(-4.5em) translateY(-0.06em)" />
+        </span>
+        <span class="name-row" id="last-name" aria-hidden="true">
+          <img src="letters/C2.png" alt="" class="name-letter letter-c2" style="transform: translateX(-0.85em) translateY(0em)" />
+          <img src="letters/H2.png" alt="" class="name-letter letter-h2" style="transform: translateX(-1.6em) translateY(0em)" />
+          <img src="letters/U.png"  alt="" class="name-letter letter-u"  style="transform: translateX(-2.3em) translateY(-0.05em)" />
+          <img src="letters/N.png"  alt="" class="name-letter letter-n"  style="transform: translateX(-3em) translateY(0em)" />
+          <img src="letters/G.png"  alt="" class="name-letter letter-g"  style="transform: translateX(-3.7em) translateY(0em)" />
+        </span>
+      </h1>
+
+      <p class="hero__tagline" id="rotating-tagline">mechanical engineering + hci</p>
+    </div>
+
+    <a class="scroll-indicator" href="#hello" aria-label="Scroll to the about section">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <polyline points="7 13 12 18 17 13" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline>
+        <polyline points="7 6 12 11 17 6" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline>
+      </svg>
+    </a>
+  </header>
+
+  <!-- hand-cut edge into the about strip -->
+  <svg class="edge-wobble" viewBox="0 0 1200 28" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 16 Q 100 2 200 16 T 400 16 T 600 16 T 800 16 T 1000 16 T 1200 16 V28 H0 Z" fill="currentColor" />
+  </svg>
+
+  <!-- ===================================================================
+       About — deliberately small. Enough to be a person, not a biography.
+       =================================================================== -->
+  <main id="main">
+    <section class="section section--tight section--warm" id="hello">
+      <div class="container">
+        <div class="about-strip reveal">
+          <div class="about-strip__photo">
+            <!-- TODO: swap for images/profilepic.jpg once you copy your assets in -->
+            <img src="images/headshot.jpeg" alt="Portrait of Rachael Chung" />
+            <span class="about-strip__sticker">that's me!</span>
+          </div>
+
+          <div class="about-strip__body">
+            <span class="meta-label">hello, hi, hey</span>
+            <h2 class="heading-1">I'm Rachael and I want to <span class="marker">build wonder.</span></h2>
+            <p class="body-text">
+              I'm a sophomore studying <strong>mechanical engineering</strong> and <strong>human-computer interaction</strong> at Carnegie Mellon University. I'm interested in bridging the gap between how something works and how it feels to use whether that be emotionally, through interactive storytelling, or physically, through functional design. I believe in using my skills to serve others and create experiences that make a positive difference.
+            </p>
+            <div class="cluster">
+              <a class="btn btn--primary" href="about.html">
+                come say hi <span class="btn__arrow" aria-hidden="true">→</span>
+              </a>
+              <a class="btn btn--ghost" href="files/RachaelChungResume.pdf">resume</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         Featured projects — a hand of playing cards.
+         ================================================================= -->
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section__head reveal">
+          <div class="section__head-text">
+            <span class="meta-label">featured projects</span>
+            <h2 class="heading-1">a hand of <span class="marker">projects</span></h2>
+            <p class="lede">
+              flip a card to find out what it is and find out how it got made.
+            </p>
+          </div>
+          <p class="flip-hint">
+            <span aria-hidden="true">↻</span> hover to flip
+          </p>
+        </div>
+
+        <ul class="deck reveal" id="featured-deck">
+          <!-- populated from projects.js -->
+        </ul>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         Playground — the scrolling belt of small things.
+         Two rows running opposite directions, both pause on hover so you
+         can read the name and description of whatever caught your eye.
+         ================================================================= -->
+    <section class="section section--tint" id="playground">
+      <div class="container">
+        <div class="playground-promo reveal">
+          <div>
+            <span class="meta-label">the archive</span>
+            <h2 class="display">playground</h2>
+          </div>
+          <div>
+            <p class="lede">
+              because sometimes you just gotta build it to see if you can. find the rest of my projects here.
+            </p>
+            <div class="cluster">
+              <a class="btn btn--pop btn--lg" href="playground.html">
+                enter the playground <span class="btn__arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="marquee">
+        <div class="marquee__track" data-marquee-row></div>
+      </div>
+      <div class="marquee marquee--reverse">
+        <div class="marquee__track" data-marquee-row></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- <svg class="scroll-doodle" viewBox="0 0 1200 3150" preserveAspectRatio="none" aria-hidden="true">
+    <path id="doodle-path" pathLength="1"
+        d="M383 -40 L450 60 C610 300 610 -100 450 140 C359 276 871 244 780 380 C620 620 620 220 780 460 C838 547 822 613 880 700 C1040 940 1040 540 880 780 C791 913 649 887 560 1020 C400 1260 400 860 560 1100 C634 1211 256 1229 330 1340 C490 1580 490 1180 330 1420 C276 1500 354 1580 300 1660 C140 1900 140 1500 300 1740 C389 1873 531 1847 620 1980 C780 2220 780 1820 620 2060 C538 2183 982 2177 900 2300 C740 2540 740 2140 900 2380 C962 2472 698 2528 760 2620 C920 2860 920 2460 760 2700 C684 2815 556 2785 480 2900 C320 3140 320 2740 480 2980 C535 3063 569 3113 591 3146" />
+  </svg> -->
+
+  <!-- ===================================================================
+       Footer
+       =================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__top">
+        <a href="mailto:rachung23@gmail.com">email</a>
+        <a href="https://linkedin.com/in/rachaelachung" target="_blank" rel="noopener">linkedin</a>
+        <a href="https://github.com/rachaelchung" target="_blank" rel="noopener">github</a>
+      </div>
+      <p>© 2026 rachael chung — have you tried the konami code?</p>
+      <p>built by hand, with help (kombai && claude sonnet 5.5). last updated october 2026.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="projects.js"></script>
+  <script src="playground.js"></script>
+  <script src="main.js"></script>
+  <script src="cursor-fx.js"></script>
+</body>
+</html>

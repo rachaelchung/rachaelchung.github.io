@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>playground — Rachael Chung</title>
+  <meta name="description" content="A digital archive of Rachael Chung's small projects — one-afternoon builds, artifacts and experiments, filterable by what they are." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="playground">
+
+  <nav class="site-nav" aria-label="Main">
+    <a class="site-nav__mark" href="index.html" aria-label="Home">
+      <img src="files/logo.png" alt="rc" />
+    </a>
+    <ul class="site-nav__links">
+      <li><a href="index.html#work">work</a></li>
+      <li><a href="playground.html" aria-current="page">playground</a></li>
+      <li><a href="about.html">about</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================================================================
+       Archive header
+       =================================================================== -->
+  <header class="archive-hero" data-shape-trail>
+    <div class="container">
+      <a class="back-link" href="index.html"><span aria-hidden="true">←</span> back home</a>
+
+      <div class="archive-hero__inner">
+        <div>
+          <span class="meta-label">the whole archive</span>
+          <h1 class="display">playground</h1>
+        </div>
+        <p class="lede">
+          every small thing, all in one place. flip a card to see what it is, then open it up for
+          the who / what / when / why / how. filter by whatever you are in the mood for.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- =================================================================
+         Filter bar — built by main.js from the tags actually in use, in
+         PLAYGROUND_TAGS order. Multiple filters stack (match any).
+         ================================================================= -->
+    <div class="filter-bar">
+      <div class="container">
+        <div class="filter-bar__row" id="filter-row" role="group" aria-label="Filter by tag">
+          <!-- populated from playground.js -->
+        </div>
+      </div>
+    </div>
+
+    <section class="section section--tight">
+      <div class="container">
+        <ul class="archive-grid" id="archive-grid">
+          <!-- populated from playground.js -->
+        </ul>
+
+        <div class="empty-state" id="archive-empty" hidden>
+          <h2 class="heading-3">nothing tagged that way — yet</h2>
+          <p class="body-text" style="margin-top: var(--space-2)">
+            try a different filter, or hit "everything" to see the whole shelf again.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight section--warm">
+      <div class="container container--narrow" style="text-align: center">
+        <h2 class="heading-2">looking for the bigger stuff?</h2>
+        <p class="lede" style="margin-top: var(--space-3)">
+          the projects with full write-ups live back on the home page.
+        </p>
+        <div class="cluster" style="justify-content: center; margin-top: var(--space-5)">
+          <a class="btn btn--primary" href="index.html#work">
+            see featured projects <span class="btn__arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================================================================
+       Detail modal — filled in by main.js. Opens in place rather than
+       navigating away, and deep-links via #slug so the marquee cards on
+       the home page can point straight at an entry.
+       =================================================================== -->
+  <div class="modal" id="playground-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal__panel">
+      <button class="modal__close" type="button" data-close-modal aria-label="Close">×</button>
+
+      <div class="modal__head">
+        <span class="meta-label">from the playground</span>
+        <h2 class="heading-2" id="modal-title">—</h2>
+        <ul class="tag-list" id="modal-tags"></ul>
+      </div>
+
+      <div class="modal__body">
+        <div class="qa-list" id="modal-qa"></div>
+        <div>
+          <div class="modal__gallery" id="modal-gallery"></div>
+          <div class="cluster" id="modal-link" style="margin-top: var(--space-5)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__top">
+        <a href="mailto:rachung23@gmail.com">email</a>
+        <a href="https://linkedin.com/in/rachaelachung" target="_blank" rel="noopener">linkedin</a>
+        <a href="https://github.com/rachaelchung" target="_blank" rel="noopener">github</a>
+      </div>
+      <p>© 2026 rachael chung — small things count too.</p>
+      <p>built by hand, with help. last updated august 2026.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="playground.js"></script>
+  <script src="main.js"></script>
+  <script src="cursor-fx.js"></script>
+</body>
+</html>

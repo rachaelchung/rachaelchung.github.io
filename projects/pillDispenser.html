@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pill dispenser project — Rachael Chung</title>
+  <meta name="description" content="A gear-driven pill dispenser that drops one marble per minute, built by a team of four in 24-101. Designed in SolidWorks, made with a laser cutter and 3d printer." />
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="stylesheet" href="../styles.css" />
+
+</head>
+<body data-page="project" data-theme="ocean">
+
+  <nav class="site-nav" aria-label="Main">
+    <a class="site-nav__mark" href="../index.html" aria-label="Home">
+      <img src="../files/logo.png" alt="rc" />
+    </a>
+    <ul class="site-nav__links">
+      <li><a href="../index.html#work">work</a></li>
+      <li><a href="../playground.html">playground</a></li>
+      <li><a href="../about.html">about</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <header class="project-hero">
+    <div class="container">
+      <a class="back-link" href="../index.html#work"><span aria-hidden="true">←</span> back to all projects</a>
+
+      <h1 class="heading-1">Pill Dispenser Mechanism</h1>
+
+      <ul class="tag-list">
+        <li class="chip chip--solid">mechanical design</li>
+        <li class="chip chip--solid">cad</li>
+        <li class="chip chip--solid">fabrication</li>
+        <li class="chip chip--solid">rapid prototyping</li>
+      </ul>
+
+      <p class="lede">
+        A pill dispenser built to deliver marbles (as pills) at a set interval of one pill per minute, with a strong emphasis on precision and reliability.
+      </p>
+
+      <p class="moment">built for: the moment a pill drops, once a minute, every time.</p>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Gallery -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="gallery reveal">
+          <figure class="figure figure--wide">
+            <img src="artifacts/pillDispenser/finishedAssembly.png" alt="The finished pill dispenser assembled inside its box, with the pipe running to the output hole" />
+            <figcaption>the finished assembly</figcaption>
+          </figure>
+          <figure class="figure">
+            <img src="artifacts/pillDispenser/fullCad.png" alt="Front view of the SolidWorks model showing the motor gear, large gear, and pill wheel" />
+            <figcaption>front cad model</figcaption>
+          </figure>
+          <figure class="figure">
+            <img src="artifacts/pillDispenser/isoCad.png" alt="Isometric view of the SolidWorks model of the full mechanism" />
+            <figcaption>isometric cad model</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- The idea -->
+    <section class="section section--tight section--warm">
+      <div class="container">
+        <div class="prose reveal">
+          <h2>the idea</h2>
+          <p>
+            The prompt was simple: design and assemble a mechanism that delivers a pill once per minute. Two marbles stood in for the pills, we were given a motor that turns at a fixed 2 rpm, and we had to build inside a provided box with set positions for the input and output holes.
+          </p>
+          <p>
+            We decided on a spinning pill wheel that makes exactly one rotation per minute, so one pill is released per cycle. Since the motor runs at 2 rpm, we needed a 1:2 gear reduction, and we let gravity carry each pill from the wheel down a pipe to the output hole.
+          </p>
+
+          <div class="ratio" role="group" aria-label="Gear ratio math">
+            <span class="ratio__step">2 rpm<small>motor</small></span>
+            <span class="ratio__arrow" aria-hidden="true">→</span>
+            <span class="ratio__step">1:2 gear ratio<small>X-tooth → 2X-tooth</small></span>
+            <span class="ratio__arrow" aria-hidden="true">→</span>
+            <span class="ratio__step">1 rpm<small>pill wheel</small></span>
+            <span class="ratio__arrow" aria-hidden="true">=</span>
+            <span class="ratio__step">1 pill / min<small>one drop per rotation</small></span>
+          </div>
+
+          <h3>what we made</h3>
+          <ul class="parts">
+            <li><strong>small gear on the motor:</strong> laser cut</li>
+            <li><strong>large gear:</strong> 3d printed</li>
+            <li><strong>pill wheel:</strong> 3d printed</li>
+            <li><strong>spacer for the motor gear:</strong> 3d printed</li>
+            <li><strong>delivery pipe:</strong> pvc</li>
+          </ul>
+
+          <h3>my part</h3>
+          <p>
+            I assisted with fabrication, as well as some CAD. I quickly modeled the top delivery pipe and fabricated the 3d printed parts. The overall design were team decisions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Designing + building -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="prose reveal">
+          <h2>designing + building</h2>
+          <h3>things working and breaking</h3>
+          <p>
+            Our first pill wheel didn't leave enough clearance around the pill hole, so the marble wedged in place and gravity couldn't drop it. We tried sanding the hole larger, but the gap we needed was far more than sanding could safely remove, so we refabricated the part with a bigger hole instead.
+          </p>
+          <!-- <dl class="compare">
+            <div><dt>marble diameter</dt><dd><span class="todo">[__ mm]</span></dd></div>
+            <div><dt>first hole (stuck)</dt><dd><span class="todo">[__ mm]</span> <span class="todo">[__ mm clearance]</span></dd></div>
+            <div><dt>final hole (worked)</dt><dd><span class="todo">[__ mm]</span> <span class="todo">[__ mm clearance]</span></dd></div>
+          </dl> -->
+        </div>
+
+        <div class="gallery reveal" style="margin-top: var(--space-5)">
+          <figure class="figure">
+            <img src="artifacts/pillDispenser/componentFab.png" alt="The first 3d printed pill wheel, whose hole was too tight for the marble" />
+            <figcaption>first print</figcaption>
+          </figure>
+          <figure class="figure">
+            <img src="artifacts/pillDispenser/componentDrawing.png" alt="Dimensioned SolidWorks drawing of the final pill wheel" />
+            <figcaption>final cad drawing</figcaption>
+          </figure>
+        </div>
+
+        <div class="prose reveal" style="margin-top: var(--space-7)">
+          <h3>making it</h3>
+          <figure class="figure">
+            <video src="artifacts/pillDispenser/testingMesh.mov" autoplay loop muted playsinline aria-label="Video of the motor gear turning the large gear during mesh testing"></video>
+            <figcaption>testing the gear mesh</figcaption>
+          </figure>
+          <p>
+            The rest of the build went smoothly. The gear mesh tested well, the gear spacing lined up, and the top pipe feeding the pill wheel turned out looser than planned but still worked fine.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Result + improvement -->
+    <section class="section section--tight section--tint">
+      <div class="container">
+        <figure class="figure reveal">
+          <img src="artifacts/pillDispenser/insideAssembly.png" alt="Inside view of the assembled box showing the gears, pill wheel, and pipe" />
+          <figcaption>a better look inside the finished assembly</figcaption>
+        </figure>
+
+        <div class="prose reveal" style="margin-top: var(--space-6)">
+          <h2>test day</h2>
+          <p>
+            On test day, every component worked within the specified conditions. Our timing was off by about 1-2 seconds per pill, which we expected because of the short travel time down the pipe.
+          </p>
+
+          <h2>continuous improvement</h2>
+          <p>
+            If we built it again, I'd change three things. First, I'd tilt the delivery pipe at a steeper angle, since a non-round object at our angle might have struggled to roll through. Second, I'd tighten the fit of the top pipe feeding the pill wheel, which was looser than it needed to be. Third, I'd cut each part to fit its neighbors more closely, which would also make the whole assembly look cleaner.
+          </p>
+          <p>
+            This was one of a few hands-on builds from my first year. If you want to see more, check out the <a href="../playground.html#flashlight">hand-powered flashlight</a> or the <a href="../playground.html#countingLinesMobot">counting lines mobot</a> in the playground.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spec sheet + buttons -->
+    <section class="section section--tight">
+      <div class="container">
+        <dl class="spec-sheet reveal">
+          <div>
+            <dt>tools</dt>
+            <dd>solidworks, laser cutter, 3d printer</dd>
+          </div>
+          <div>
+            <dt>timeline</dt>
+            <dd>fall 2025 over 3 weeks</dd>
+          </div>
+          <div>
+            <dt>role</dt>
+            <dd>team of 4: fabricator + cad</dd>
+          </div>
+          <div>
+            <dt>course</dt>
+            <dd>24-101 fundamentals of mechanical engineering</dd>
+          </div>
+          <div>
+            <dt>status</dt>
+            <dd>completed for final project</dd>
+          </div>
+        </dl>
+
+        <div class="cluster" style="margin-top: var(--space-6)">
+          <a class="btn btn--primary" href="wishWeekBranding.html">
+            next project <span class="btn__arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="btn" href="../index.html#work">back to all projects</a>
+          <a class="btn btn--ghost" href="../playground.html">see the playground</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__top">
+        <a href="mailto:rachung23@gmail.com">email</a>
+        <a href="https://linkedin.com/in/rachaelachung" target="_blank" rel="noopener">linkedin</a>
+        <a href="https://github.com/rachaelchung" target="_blank" rel="noopener">github</a>
+      </div>
+      <p>© 2026 rachael chung</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="../main.js"></script>
+</body>
+</html>

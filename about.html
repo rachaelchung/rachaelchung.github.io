@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>about — Rachael Chung</title>
+  <meta name="description" content="About Rachael Chung — mechanical engineering and HCI at Carnegie Mellon. Skills, coursework, and the things I will happily talk about for too long." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="about">
+
+  <nav class="site-nav" aria-label="Main">
+    <a class="site-nav__mark" href="index.html" aria-label="Home">
+      <img src="files/logo.png" alt="rc" />
+    </a>
+    <ul class="site-nav__links">
+      <li><a href="index.html#work">work</a></li>
+      <li><a href="playground.html">playground</a></li>
+      <li><a href="about.html" aria-current="page">about</a></li>
+    </ul>
+  </nav>
+  
+  <!-- ===================================================================
+       Hi
+       =================================================================== -->
+  <header class="hi-block" id="hi-block">
+    <div>
+      <p class="hi-word" tabindex="0" role="button" aria-label="Say hi — activate for confetti">hi</p>
+      <p class="hi-block__hint">go on, click it</p>
+    </div>
+  </header>
+
+  <!-- =================================================================
+         Polaroid
+      ================================================================= -->
+
+  <div class="polaroid-row reveal">
+    <button class="polaroid" data-full="images/photo1.jpg">
+      <img src="images/photo1.jpg" alt="photo 1" loading="lazy">
+    </button>
+    <button class="polaroid" data-full="images/photo2.jpg" >
+      <img src="images/photo2.jpg" alt="photo 2" loading="lazy">
+    </button>
+    <button class="polaroid" data-full="images/photo3.jpg">
+      <img src="images/photo3.jpg" alt="photo 3" loading="lazy">
+    </button>
+    <button class="polaroid" data-full="images/photo4.jpg">
+      <img src="images/photo4.jpg" alt="photo 4" loading="lazy">
+    </button>
+  </div>
+
+  <div class="modal" id="photo-modal" role="dialog" aria-modal="true" aria-label="Enlarged photo">
+    <div class="modal__panel modal__panel--photo">
+      <button class="modal__close" type="button" aria-label="Close photo">×</button>
+      <img src="" alt="">
+    </div>
+  </div>
+
+  <main id="main">
+    
+    <!-- =================================================================
+         Bio
+         ================================================================= -->
+    <section class="section section--tight section--warm">
+      <div class="container container--narrow reveal">
+        <span class="meta-label">the whole introduction</span>
+        <h2 class="heading-1">I'm so happy you're here!</h2>
+        <div class="stack" style="margin-top: var(--space-5)">
+          <p class="body-text">
+            I'm Rachael, and I like to say that I want to <strong>build wonder and create joy.</strong> To me, this means I'm looking for everyday ways to bring happiness and fulfillment to the people who use the things I create. In everything I do, I want to serve others and bring a little light and delight through my relationships, skills, and talents.
+          </p>
+          <p class="body-text">
+            I am a sophomore studying <strong>mechanical engineering and human-computer interaction</strong> at Carnegie Mellon, which is a long way of saying I like human-centered design, and making things people have to use, and thinking about how they will use it! I am most interested in interactive storytelling and enhancing the human experience through fun and functional technology.
+          </p>
+          <p class="body-text">
+            I'm an <strong>engineer and designer</strong> interested in bridging the gap between how something works and how it feels to use. My background spans engineering, graphic design, and the performing arts, which has shaped how I think about user experience, storytelling, and form. Whether crafting a physical mechanism or a visual story, I'm driven by humanity at the center of it all.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         Skills
+         ================================================================= -->
+    <section class="section">
+      <div class="container">
+        <div class="section__head reveal">
+          <div class="section__head-text">
+            <span class="meta-label">the toolbox</span>
+            <h2 class="heading-1">what I can <span class="marker">actually do</span></h2>
+          </div>
+        </div>
+
+        <div class="skill-grid reveal">
+          <article class="card skill-card">
+            <h3>make it real</h3>
+            <ul>
+              <li>cad (solidworks)</li>
+              <li>3d printing</li>
+              <li>laser cutting</li>
+              <li>ANSYS (FEA)</li>
+              <li>hand tools + shop basics</li>
+            </ul>
+          </article>
+
+          <article class="card skill-card">
+            <h3>make it think</h3>
+            <ul>
+              <li>python</li>
+              <li>matlab</li>
+              <li>arduino (c/c++)</li>
+              <li>html, css, a little js</li>
+              <li>git/github</li>
+            </ul>
+          </article>
+
+          <article class="card skill-card">
+            <h3>make it land</h3>
+            <ul>
+              <li>ideation + prototyping</li>
+              <li>user research + testing</li>
+              <li>figma</li>
+              <li>video editing + directing</li>
+              <li>social media + campaigns</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         Resume + degree
+         ================================================================= -->
+    <section class="section section--warm">
+      <div class="container">
+        <div class="about-split">
+          <div class="reveal">
+            <span class="meta-label">some of the resume</span>
+            <h2 class="heading-2">where i've been</h2>
+            <p class="lede" style="margin-top: var(--space-3)">the short version. click the link for more...</p>
+
+            <div class="timeline" style="margin-top: var(--space-6)">
+              <div class="timeline__item">
+                <p class="timeline__when">aug 2025 — present</p>
+                <p class="timeline__what">student advisory council leader</p>
+                <p class="timeline__where">selected as one of two students in my year to serve as liasion between my class and the CMU Department of Mechanical Engineering</p>
+              </div>
+              <div class="timeline__item">
+                <p class="timeline__when">aug 2025 - present</p>
+                <p class="timeline__what">digital communications intern</p>
+                <p class="timeline__where">social media manager for CMU Student Involvement & Traditions department (@cmugetinvolved)</p>
+              </div>
+              <div class="timeline__item">
+                <p class="timeline__when">sept 2023 - april 2025</p>
+                <p class="timeline__what">wish week project coordinator</p>
+                <p class="timeline__where">managing branding, pr, and coordination for fundraising efforts raising over $487,000 and granting 47 wishes</p>
+              </div>
+            </div>
+
+            <div class="cluster" style="margin-top: var(--space-6)">
+              <a class="btn btn--primary" href="files/RachaelChungResume.pdf" target="_blank" rel="noopener">
+                the whole resume <span class="btn__arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="reveal">
+            <article class="card degree-card">
+              <span class="degree-card__badge">carnegie mellon university</span>
+              <h2 class="heading-3">b.s. mechanical engineering</h2>
+              <p class="body-text" style="margin-top: var(--space-2)">
+                additional major in human-computer interaction · class of 2029
+              </p>
+
+              <span class="meta-label" style="margin-top: var(--space-6)">selected coursework</span>
+              <ul class="coursework">
+                <li><span>05-391</span><span>designing human centered software</span></li>
+                <li><span>24-261</span><span>mechanics I: 2d design</span></li>
+                <li><span>85-150</span><span>social psychology</span></li>
+                <li><span>15-113</span><span>effective coding with ai</span></li>
+                <li><span>49-101</span><span>introduction to engineering design, innovation, and entrepreneurship</span></li>
+                <li><span>54-177</span><span>foundations of drama I</span></li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         Ask me about
+         ================================================================= -->
+    <section class="section section--tint">
+      <div class="container container--narrow">
+        <div class="section__head reveal" style="justify-content: center; text-align: center">
+          <div class="section__head-text">
+            <span class="meta-label">the side quests</span>
+            <h2 class="heading-1">ask me about</h2>
+            <p class="lede">my wide range of interests</p>
+          </div>
+        </div>
+
+        <div class="ask-wall reveal">
+          <span class="ask-chip" tabindex="0">
+            singing a cappella
+            <span class="ask-chip__tip" role="tooltip">I am music director for CMU's Joyful Noise!</span>
+          </span>
+          <span class="ask-chip" tabindex="0">
+            crochet
+            <span class="ask-chip__tip" role="tooltip">I love making little crochet animals for friends and family</span>
+          </span>
+          <span class="ask-chip" tabindex="0">
+            mechanical keyboards
+            <span class="ask-chip__tip" role="tooltip">My current keyboard is a 75% with tactile switches. I would have so many more if I could...</span>
+          </span>
+          <span class="ask-chip" tabindex="0">
+            detonating explosives
+            <span class="ask-chip__tip" role="tooltip">Yes, I went to explosives camp. Yes, I've made fireworks by hand.</span>
+          </span>
+          <span class="ask-chip" tabindex="0">
+            colorado
+            <span class="ask-chip__tip" role="tooltip">nothing can beat the snow and mountains where I grew up</span>
+          </span>
+          <span class="ask-chip" tabindex="0">
+            minesweeper
+            <span class="ask-chip__tip" role="tooltip">A bit of an unhealthy obsession, but I can do it so fast now!!</span>
+          </span>
+          <span class="ask-chip" tabindex="0">
+            movies
+            <span class="ask-chip__tip" role="tooltip">top 4: now you see me, top gun: maverick, elemental, set it up</span>
+          </span>
+          <span class="ask-chip" tabindex="0">
+            my ukulele
+            <span class="ask-chip__tip" role="tooltip">The ultimate destressor after a long day</span>
+          </span>
+          <span class="ask-chip" tabindex="0">
+            short stories
+            <span class="ask-chip__tip" role="tooltip">A big fan of stories like "The Ones Who Walk Away from Omelas", "Runaround", "There Will Come Soft Rains"</span>
+          </span>
+          <span class="ask-chip" tabindex="0">
+            the confetti
+            <span class="ask-chip__tip" role="tooltip">I just really think there's always something to celebrate :)</span>
+          </span>
+        </div>
+
+        <div class="cluster reveal" style="justify-content: center; margin-top: var(--space-7)">
+          <a class="btn btn--pop btn--lg" href="mailto:rachung23@gmail.com">
+            say hi for real <span class="btn__arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="btn" href="playground.html">see the playground</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__top">
+        <a href="mailto:rachung23@gmail.com">email</a>
+        <a href="https://linkedin.com/in/rachaelachung" target="_blank" rel="noopener">linkedin</a>
+        <a href="https://github.com/rachaelchung" target="_blank" rel="noopener">github</a>
+      </div>
+      <p>© 2026 rachael chung — the konami code works here too.</p>
+      <p>built by hand, with help. last updated august 2026.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
