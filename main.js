@@ -19,6 +19,7 @@
    11. about page: say hi
    12. scroll reveal
    13. tap-to-flip on touch devices
+   14. ui audio
    ========================================================================== */
 
 /* 01. helpers ---------------------------------------------------------- */
@@ -930,6 +931,21 @@ function initTapFlip() {
     if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
   });
 })();
+
+/* 14. audio --------------------------------------------------------------- */
+
+// const clickSound = new Audio('/files/click.mp3');
+
+// clickSound.volume = 0.5;
+
+// qsa('.btn').forEach(element => {
+//   element.addEventListener('click', () => {
+//     clickSound.currentTime = 0;
+//     clickSound.play().catch(err => {
+//       console.log('Audio playback failed:', err);
+//     });
+//   });
+// });
 
 /* boot --------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
