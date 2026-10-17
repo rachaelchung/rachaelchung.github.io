@@ -501,14 +501,16 @@ ul, ol { list-style: none; }
 .site-footer__top a:hover { color: var(--ink); text-decoration: none; background: var(--color-primary); border-color: var(--ink); }
 
 /* Konami theme picker */
+/* Konami theme picker */
 .theme-picker {
   position: fixed;
   top: 50%;
   left: 50%;
   z-index: var(--z-picker);
   display: none;
-  max-width: 440px;
+  width: min(24rem, calc(100vw - 2rem));  /* fixed width, not content-driven */
   padding: var(--space-6);
+  font-size: 1rem;                         /* reset anything inherited */
   text-align: center;
   background: var(--paper);
   border: var(--border-width-thick) solid var(--ink);
@@ -522,18 +524,48 @@ ul, ol { list-style: none; }
 .theme-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-3);
+  gap: var(--space-4) var(--space-2);
   margin-bottom: var(--space-5);
 }
+
 .theme-btn {
-  padding: var(--space-4) 0;
-  font-size: 1.5rem;
-  border: var(--border-width) solid var(--ink);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+  display: grid;
+  justify-items: center;
+  gap: var(--space-2);
+  padding: 0;
+  font-size: 0.72rem;            /* rem, so it never follows the heading */
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: lowercase;
 }
-.theme-btn:hover { box-shadow: var(--shadow-md); transform: translate(-2px, -2px); }
+
+.theme-btn__swatch {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--from), var(--to));
+  border: var(--border-width) solid var(--ink);
+  border-radius: 50%;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.12);
+  transition: transform var(--dur-fast) var(--ease-bounce),
+              box-shadow var(--dur-fast) var(--ease-out);
+}
+.theme-btn:hover .theme-btn__swatch {
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.14);
+  transform: translate(-2px, -2px) scale(1.06);
+}
+
+/* Selected: a ring that sits outside the sticker border */
+.theme-btn[aria-pressed='true'] .theme-btn__swatch {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+.theme-btn[aria-pressed='true'] { font-weight: 800; }
+
+.theme-btn:focus-visible { outline: none; }
+.theme-btn:focus-visible .theme-btn__swatch {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
 
 /* 08. Hero ------------------------------------------------------------ */
 .hero {
@@ -1423,8 +1455,7 @@ body { position: relative; }
 
   .mcard { width: 210px; }
 
-  .theme-grid { grid-template-columns: repeat(4, 1fr); }
-  .theme-picker { width: calc(100% - 2rem); padding: var(--space-5); }
+  .theme-picker { padding: var(--space-5); }
 
   .filter-bar { top: 70px; }
 

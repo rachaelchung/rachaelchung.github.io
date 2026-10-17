@@ -33,6 +33,8 @@ const PLAYGROUND_TAGS = [
   'social media',
   'prototyping',
   'mobile',
+  '1-hour',
+  'website'
 ];
 
 /* --------------------------------------------------------------------------
@@ -251,5 +253,35 @@ const playgroundItems = [
     how: 'Using design software such as Canva to create posters and graphics, and concert photography with a Canon EOS Rebel T7i.',
     gallery: ['images/frolicInTheGrass/1.png', 'images/frolicInTheGrass/2.png', 'images/frolicInTheGrass/3.png'],
     link: { label: 'see on Instagram', url: 'https://www.instagram.com/p/DXC2abikaO3/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' }
+  },
+  {
+    slug: 'bidsburgh',
+    name: 'BIDsburgh ',
+    when: 'spring 2026',
+    short: 'An internal communication and information website for Break It Down: Pittsburgh, a national collegiate Christian A Cappella conference.',
+    image: 'images/bidsburghTitle.png',
+    alt: 'BIDSburgh Website',
+    tags: ['website', 'ai-assisted', '1-hour'],
+    who: 'solo, in collaboration for Break It Down: Pittsburgh',
+    what: 'A website for interal communication and information for all 11 schools participating in Break It Down: Pittsburgh, a national collegiate Christian A Cappella conference.',
+    why: 'As the host school, information was beginning to become jumbled and hard to find across many emails, so I wanted to create a simple and accessible way for all participants to find the information they needed in one place.',
+    how: 'Using HTML, CSS, and JavaScript with AI-assisted development to create a responsive and user-friendly website, hosted on GitHub Pages.',
+    gallery: ['images/bidsburgh/1.png', 'images/bidsburgh/2.png'],
+    link: { label: 'see it live', url: 'https://rachaelchung.github.io/bidsburgh/' }
+  },
+  {
+    slug: 'joyfulNoise',
+    name: 'Joyful Noise Website',
+    when: 'summer 2026',
+    short: 'The website for my A Cappella group, Joyful Noise!',
+    image: 'images/joyfulNoiseTitle.png',
+    alt: 'Joyful Noise Website',
+    tags: ['website', 'ai-assisted', 'graphic design'],
+    who: 'solo, in collaboration for Break It Down: Pittsburgh',
+    what: 'A website for my A Cappella group, Joyful Noise!, to provide information about the group, upcoming events, and ways to get involved (like auditions!)',
+    why: 'We wanted a good place to collect all of the information on our group, as well as update a very outdated website. My favroite features include the timeline on the about page and the changing hover images on the members page.',
+    how: 'Using HTML, CSS, and JavaScript with AI-assisted development to create a site representative of us, hosted on GitHub Pages.',
+    gallery: ['images/joyfulNoise/1.png', 'images/joyfulNoise/2.png'],
+    link: { label: 'see it live', url: 'https://cmujoyfulnoise.org/' }
   },
 ];

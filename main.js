@@ -47,15 +47,21 @@ const canHover = window.matchMedia('(hover: hover)').matches;
 
 /* 02. themes + konami code -------------------------------------------- */
 const THEMES = [
-  { id: 'default', emoji: '🦕', label: 'the usual', from: '#64b496', to: '#7ec8e3' },
-  { id: 'sunset', emoji: '🌅', label: 'sunset', from: '#ff6b6b', to: '#ffa07a' },
-  { id: 'purple', emoji: '🪻', label: 'purple', from: '#a78bfa', to: '#c084fc' },
-  { id: 'ocean', emoji: '🌊', label: 'ocean', from: '#4a9eff', to: '#0ea5e9' },
-  { id: 'forest', emoji: '🌲', label: 'forest', from: '#52b788', to: '#95d5b2' },
-  { id: 'rose', emoji: '🌸', label: 'rose', from: '#fb6f92', to: '#fda4af' },
-  { id: 'monochrome', emoji: '⚙️', label: 'monochrome', from: '#6b7280', to: '#9ca3af' },
-  { id: 'cmu', emoji: '🐕‍🦺', label: 'cmu', from: '#c41230', to: '#8c8b8b' },
+  { id: 'default', label: 'the usual', from: '#64b496', to: '#7ec8e3' },
+  { id: 'sunset', label: 'sunset', from: '#ff6b6b', to: '#ffa07a' },
+  { id: 'purple', label: 'purple', from: '#a78bfa', to: '#c084fc' },
+  { id: 'ocean', label: 'ocean', from: '#4a9eff', to: '#0ea5e9' },
+  { id: 'forest', label: 'forest', from: '#52b788', to: '#95d5b2' },
+  { id: 'rose', label: 'rose', from: '#fb6f92', to: '#fda4af' },
+  { id: 'monochrome', label: 'monochrome', from: '#6b7280', to: '#9ca3af' },
+  { id: 'cmu', label: 'cmu', from: '#c41230', to: '#8c8b8b' },
 ];
+
+function syncPickerState(id) {
+  document.querySelectorAll('.theme-btn').forEach((btn) => {
+    btn.setAttribute('aria-pressed', String(btn.dataset.themeId === id));
+  });
+}
 
 function applyTheme(id) {
   if (id === 'default') {
@@ -68,6 +74,7 @@ function applyTheme(id) {
   } catch (err) {
     /* private browsing — the theme just will not persist, which is fine */
   }
+  syncPickerState(id);
 }
 
 /* Restore the saved theme immediately so there is no colour flash. */
@@ -96,17 +103,20 @@ function buildThemePicker() {
   picker.innerHTML = `
     <h3 class="heading-3">you found it!</h3>
     <p>congrats, pick a vibe now:</p>
-    <div class="theme-grid">
-      ${THEMES.map(
-        (theme) => `
-        <button class="theme-btn" type="button" data-theme-id="${theme.id}" title="${esc(theme.label)}"
-          aria-label="${esc(theme.label)} theme"
-          style="background: linear-gradient(135deg, ${theme.from}, ${theme.to});">${theme.emoji}</button>`
-      ).join('')}
+    <div class="theme-grid" role="group" aria-label="Colour themes">
+    ${THEMES.map(
+      (theme) => `
+        <button class="theme-btn" type="button" data-theme-id="${theme.id}"
+          aria-label="${esc(theme.label)} theme" aria-pressed="false">
+          <span class="theme-btn__swatch" style="--from:${theme.from}; --to:${theme.to};"></span>
+          <span class="theme-btn__label">${esc(theme.label)}</span>
+        </button>`
+    ).join('')}
     </div>
     <button class="btn btn--sm" type="button" data-close-picker>close</button>
   `;
   document.body.appendChild(picker);
+  syncPickerState(document.documentElement.dataset.theme || 'default');
 
   picker.addEventListener('click', (event) => {
     const themeBtn = event.target.closest('[data-theme-id]');
