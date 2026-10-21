@@ -55,7 +55,7 @@ const THEMES = [
   { id: 'forest', label: 'forest', from: '#52b788', to: '#95d5b2' },
   { id: 'rose', label: 'rose', from: '#fb6f92', to: '#fda4af' },
   { id: 'monochrome', label: 'monochrome', from: '#6b7280', to: '#9ca3af' },
-  { id: 'cmu', label: 'cmu', from: '#c41230', to: '#8c8b8b' },
+  { id: 'lemon', label: 'lemon', from: '#689d6a', to: '#fcf1c7' },
 ];
 
 function syncPickerState(id) {
@@ -934,18 +934,29 @@ function initTapFlip() {
 
 /* 14. audio --------------------------------------------------------------- */
 
-// const clickSound = new Audio('/files/click.mp3');
+const clickSound = new Audio('/files/click.mp3');
+clickSound.volume = 0.5;
 
-// clickSound.volume = 0.5;
+const CLICKABLE = [
+  '.btn',
+  '.chip-button',
+  '.theme-btn',
+  '.modal__close',
+  '.polaroid',
+  '.mcard',
+  '.pcard',
+].join(',');
 
-// qsa('.btn').forEach(element => {
-//   element.addEventListener('click', () => {
-//     clickSound.currentTime = 0;
-//     clickSound.play().catch(err => {
-//       console.log('Audio playback failed:', err);
-//     });
-//   });
-// });
+document.addEventListener('click', (e) => {
+  const target = e.target.closest(CLICKABLE);
+  if (!target || target.disabled) return;
+
+  if (target.matches('.pcard') && e.target.closest('.btn, a')) return;
+  console.log('click sound');
+
+  clickSound.currentTime = 0;
+  clickSound.play().catch(() => {});
+});
 
 /* boot --------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {

@@ -113,7 +113,7 @@
 [data-theme='forest']    { --color-primary: #52b788; --color-secondary: #95d5b2; --color-text: #2d6a4f; --color-bg-light: #d8f3dc; }
 [data-theme='rose']      { --color-primary: #fb6f92; --color-secondary: #fda4af; --color-text: #9f1239; --color-bg-light: #ffe4e6; }
 [data-theme='monochrome']{ --color-primary: #6b7280; --color-secondary: #9ca3af; --color-text: #1f2937; --color-bg-light: #f3f4f6; }
-[data-theme='cmu']       { --color-primary: #c41230; --color-secondary: #8c8b8b; --color-text: #4a4a4a; --color-bg-light: #f5f5f5; }
+[data-theme='lemon']       { --color-primary: #689d6a; --color-secondary: #559657; --color-text: #3d3836; --color-bg-light: #fcf1c7; }
 
 /* 03. Reset & base ----------------------------------------------------- */
 *,
@@ -533,7 +533,7 @@ ul, ol { list-style: none; }
   justify-items: center;
   gap: var(--space-2);
   padding: 0;
-  font-size: 0.72rem;            /* rem, so it never follows the heading */
+  font-size: 0.72rem;          
   font-weight: 600;
   line-height: 1.2;
   text-transform: lowercase;
@@ -802,7 +802,8 @@ body { position: relative; }
   transition: rotate var(--dur-mid) var(--ease-out), translate var(--dur-mid) var(--ease-out);
 }
 .pcard:hover,
-.pcard:focus-within { z-index: 2; rotate: 0deg; translate: 0 -8px; }
+.pcard:focus-visible,
+.pcard:has(:focus-visible) { z-index: 2; rotate: 0deg; translate: 0 -8px; }
 
 .pcard__inner {
   position: relative;
@@ -812,7 +813,8 @@ body { position: relative; }
   transform-style: preserve-3d;
 }
 .pcard:hover .pcard__inner,
-.pcard:focus-within .pcard__inner,
+.pcard:focus-visible .pcard__inner,
+.pcard:has(:focus-visible) .pcard__inner,
 .pcard.is-flipped .pcard__inner { transform: rotateY(180deg); }
 
 .pcard__face {

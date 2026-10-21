@@ -34,7 +34,8 @@ const PLAYGROUND_TAGS = [
   'prototyping',
   'mobile',
   '1-hour',
-  'website'
+  'website',
+  'machining'
 ];
 
 /* --------------------------------------------------------------------------
@@ -283,5 +284,19 @@ const playgroundItems = [
     how: 'Using HTML, CSS, and JavaScript with AI-assisted development to create a site representative of us, hosted on GitHub Pages.',
     gallery: ['images/joyfulNoise/1.png', 'images/joyfulNoise/2.png'],
     link: { label: 'see it live', url: 'https://cmujoyfulnoise.org/' }
+  },
+  {
+    slug: 'ticTacToe',
+    name: 'Tic Tac Toe Game',
+    when: 'fall 2026',
+    short: 'A simple Tic Tac Toe game build with a knee mill and lathe.',
+    image: 'images/ticTacToeTitle.png',
+    alt: 'Tic Tac Toe Game',
+    tags: ['game', 'fabrication', 'machining'],
+    who: 'solo, for 24-203',
+    what: 'A small Tic Tac Toe game built from scratch with steel and plastic.',
+    why: 'To learn how to use a knee mill and lathe, and to create a simple game that can be played with friends or family.',
+    how: 'Knee mill and lathe for the steel board and plastic pieces, following CAD designs and machining techniques learned in class.',
+    gallery: ['images/ticTacToe/1.png', 'images/ticTacToe/2.png'],
   },
 ];
