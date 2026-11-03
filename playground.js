@@ -297,6 +297,6 @@ const playgroundItems = [
     what: 'A small Tic Tac Toe game built from scratch with steel and plastic.',
     why: 'To learn how to use a knee mill and lathe, and to create a simple game that can be played with friends or family.',
     how: 'Knee mill and lathe for the steel board and plastic pieces, following CAD designs and machining techniques learned in class.',
-    gallery: ['images/ticTacToe/1.png', 'images/ticTacToe/2.png'],
+    gallery: ['images/ticTacToe/1.jpg', 'images/ticTacToe/2.jpg'],
   },
 ];
