@@ -290,7 +290,7 @@ const playgroundItems = [
     name: 'Tic Tac Toe Game',
     when: 'fall 2026',
     short: 'A simple Tic Tac Toe game build with a knee mill and lathe.',
-    image: 'images/ticTacToeTitle.png',
+    image: 'images/ticTacToeTitle.jpg',
     alt: 'Tic Tac Toe Game',
     tags: ['game', 'fabrication', 'machining'],
     who: 'solo, for 24-203',
